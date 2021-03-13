@@ -1,15 +1,21 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TicToe;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Configuration : MonoBehaviour
+namespace TicToe
 {
-    [SerializeField] private ConfigurationData _configuration;
+    [CreateAssetMenu]
+    public class Configuration : ScriptableObject
+    {
+        [SerializeField] private int _levelWidth;
+        [SerializeField] private int _levelHeight;
+        [SerializeField] private int _chainLenght;
+        [SerializeField] private CellView _cellView;
+        [SerializeField] private Vector2 _offcet;
 
-    public int LevelWidth => _configuration.LevelWidth;
-    public int LevelHeight => _configuration.LevelHeight;
-    public int ChainLenght => _configuration.ChainLenght;
-    public CellView CellView => _configuration.CellView;
-    public Vector2 Offcet => _configuration.Offcet;
+
+        public int LevelWidth => _levelWidth;
+        public int LevelHeight => _levelHeight;
+        public int ChainLenght => _chainLenght;
+        public CellView CellView => _cellView;
+        public Vector2 Offcet => _offcet;
+    }
 }

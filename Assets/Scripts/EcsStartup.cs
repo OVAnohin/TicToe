@@ -5,12 +5,13 @@ namespace TicToe
 {
     sealed class EcsStartup : MonoBehaviour
     {
-        EcsWorld _world;
-        EcsSystems _systems;
+        private EcsWorld _world;
+        private EcsSystems _systems;
 
         [SerializeField] private Configuration _configuration;
+        [SerializeField] private SceneData  _sceneData;
 
-        void Start()
+        private void Start()
         {
             // void can be switched to IEnumerator for support coroutines.
 
@@ -22,26 +23,28 @@ namespace TicToe
 #endif
             _systems
                 // register your systems here, for example:
-                .Add (new InitializeFieldSystem(_configuration))
-                .Add (new CreateCellViewSystem(_configuration))
+                .Add(new InitializeFieldSystem())
+                .Add(new CreateCellViewSystem())
+                .Add(new SetCameraSystem())
                 // .Add (new TestSystem2 ())
 
                 // register one-frame components (order is important), for example:
-                // .OneFrame<TestComponent1> ()
+                .OneFrame<UpdateCameraEvent>()
                 // .OneFrame<TestComponent2> ()
 
                 // inject service instances here (order doesn't important), for example:
-                .Inject (new ConfigurationData())
+                .Inject(_configuration)
+                .Inject(_sceneData)
                 // .Inject (new NavMeshSupport ())
                 .Init();
         }
 
-        void Update()
+        private void Update()
         {
             _systems?.Run();
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             if (_systems != null)
             {

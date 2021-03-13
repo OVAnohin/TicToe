@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4635ca8fbfdb7d740a7f7b3e40a93f02, type: 3}
-  m_Name: New Configuration Data
+  m_Script: {fileID: 11500000, guid: 345a80a171f2c02408aabb1858b8f3fa, type: 3}
+  m_Name: Configuration
   m_EditorClassIdentifier: 
   _levelWidth: 3
   _levelHeight: 3
   _chainLenght: 3
   _cellView: {fileID: 3821048094857816225, guid: 15378fe876b24fb4b8baa7993dc52ac7,
     type: 3}
-  _offcet: {x: 0, y: 0}
+  _offcet: {x: 0.1, y: 0.1}

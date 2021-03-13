@@ -8,11 +8,6 @@ namespace TicToe
         private Configuration _configuration;
         private EcsWorld _ecsWorld;
 
-        public InitializeFieldSystem(Configuration configuration)
-        {
-            _configuration = configuration;
-        }
-
         public void Init()
         {
             for (int x = 0; x < _configuration.LevelWidth; x++)
@@ -24,6 +19,8 @@ namespace TicToe
                     cellEntity.Get<Position>().value = new Vector2Int(x, y);
                 }
             }
+
+            _ecsWorld.NewEntity().Get<UpdateCameraEvent>();
         }
     }
 }
