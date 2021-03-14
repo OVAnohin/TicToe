@@ -17,9 +17,10 @@ namespace TicToe
 
                 var camera = _sceneData.Camera;
                 camera.orthographic = true;
-                //camera.orthographicSize = height / 2f + (height - 1) * _configuration.Offcet.y / 2;
+                var size = height / 2f + (height - 1) * _configuration.Offcet.y / 2;
+                camera.orthographicSize = size;
 
-                //_sceneData.CameraTransform.position = new Vector3
+                _sceneData.CameraTransform.position = new Vector3(_configuration.LevelWidth / 2f + (_configuration.LevelWidth - 1) * _configuration.Offcet.y / 2, size, -size);
             }
         }
     }

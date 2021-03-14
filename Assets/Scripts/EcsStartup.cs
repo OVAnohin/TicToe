@@ -21,20 +21,29 @@ namespace TicToe
             Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create(_world);
             Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_systems);
 #endif
+            var gameState = new GameState();
+
             _systems
                 // register your systems here, for example:
                 .Add(new InitializeFieldSystem())
                 .Add(new CreateCellViewSystem())
                 .Add(new SetCameraSystem())
+                .Add(new ControlSystem())
+                .Add(new AnalyzeClickedSystem())
+                .Add(new CreateTackenViewSystem())
+                .Add(new CheckWinSystem())
                 // .Add (new TestSystem2 ())
 
                 // register one-frame components (order is important), for example:
                 .OneFrame<UpdateCameraEvent>()
+                .OneFrame<Clicked>()
+                .OneFrame<CheckWinEvent>()
                 // .OneFrame<TestComponent2> ()
 
                 // inject service instances here (order doesn't important), for example:
                 .Inject(_configuration)
                 .Inject(_sceneData)
+                .Inject(gameState)
                 // .Inject (new NavMeshSupport ())
                 .Init();
         }

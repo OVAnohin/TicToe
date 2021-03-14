@@ -2,8 +2,8 @@
 
 namespace TicToe
 {
-    internal struct Position
+    public struct Position
     {
-        public Vector2Int value;
+        public Vector2Int Value;
     }
 }

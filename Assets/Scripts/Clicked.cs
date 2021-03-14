@@ -1,6 +1,6 @@
 ﻿namespace TicToe
 {
-    public struct Cell
+    internal struct Clicked
     {
     }
 }

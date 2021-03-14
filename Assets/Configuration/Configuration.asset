@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 345a80a171f2c02408aabb1858b8f3fa, type: 3}
   m_Name: Configuration
   m_EditorClassIdentifier: 
+  _zeroView: {fileID: 592637330439866709, guid: 0d3d350df3a7d3041b273329a9add70f,
+    type: 3}
+  _crossView: {fileID: 8324429000249274604, guid: 6662ebf92a080b9448a3a28ee810fd73,
+    type: 3}
   _levelWidth: 3
   _levelHeight: 3
   _chainLenght: 3

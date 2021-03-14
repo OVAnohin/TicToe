@@ -7,6 +7,7 @@ namespace TicToe
     {
         private Configuration _configuration;
         private EcsWorld _ecsWorld;
+        private GameState _gameState;
 
         public void Init()
         {
@@ -16,7 +17,10 @@ namespace TicToe
                 {
                     var cellEntity = _ecsWorld.NewEntity();
                     cellEntity.Get<Cell>();
-                    cellEntity.Get<Position>().value = new Vector2Int(x, y);
+                    var position = new Vector2Int(x, y);
+                    cellEntity.Get<Position>().Value = position;
+
+                    _gameState.Cells[position] = cellEntity;
                 }
             }
 

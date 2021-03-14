@@ -5,6 +5,8 @@ namespace TicToe
     [CreateAssetMenu]
     public class Configuration : ScriptableObject
     {
+        [SerializeField] private SignView _zeroView;
+        [SerializeField] private SignView _crossView;
         [SerializeField] private int _levelWidth;
         [SerializeField] private int _levelHeight;
         [SerializeField] private int _chainLenght;
@@ -17,5 +19,7 @@ namespace TicToe
         public int ChainLenght => _chainLenght;
         public CellView CellView => _cellView;
         public Vector2 Offcet => _offcet;
+        public SignView ZeroView => _zeroView;
+        public SignView CrossView => _crossView;
     }
 }

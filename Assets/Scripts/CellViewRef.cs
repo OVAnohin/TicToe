@@ -2,6 +2,6 @@
 {
     internal struct CellViewRef
     {
-        public CellView value;
+        public CellView Value;
     }
 }
